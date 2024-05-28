@@ -1,0 +1,115 @@
+:root {
+   --ff-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+
+   --clr-primary: #666;
+   --clr-ttile: #333;
+}
+
+body {
+   font-family: var(--ff-primary);
+   color: var(--clr-primary);
+   background-color: #f0f0f0;
+}
+.container-grid {
+   margin-block: 4rem;
+   margin-inline: 2rem;
+   min-width: 0ch;
+   justify-content: center;
+}
+
+header {
+   text-align: center;
+}
+header p {
+   margin-inline: auto;
+}
+h1:is(:not(.title h1)) {
+   font-weight: 300;
+}
+h2 {
+   color: var(--clr-ttile);
+}
+.title h1 {
+   color: var(--clr-ttile);
+}
+p {
+   max-width: 35ch;
+}
+
+.grid {
+   display: grid;
+   gap: 1.5rem;
+}
+
+.box {
+   display: flex;
+   flex-direction: column;
+   background-color: #fff;
+   box-shadow: 0 0.5rem 0.5rem;
+   border-radius: 1rem;
+   padding-inline: 1.5rem;
+}
+.box-sky {
+   border-top: 0.4rem solid skyblue;
+}
+.box-red {
+   border-top: 0.4rem solid red;
+}
+.box-orange {
+   border-top: 0.4rem solid orange;
+}
+.box-blue {
+   border-top: 0.4rem solid blue;
+}
+img {
+   max-height: 100px;
+   max-width: fit-content;
+   object-fit: cover;
+   margin-left: auto;
+   margin-right: 1rem;
+   margin-bottom: 1rem;
+   justify-content: end;
+}
+
+@media (min-width: 720px) {
+   .container-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 15rem 1fr;
+   }
+   header {
+      grid-column: 1/4;
+   }
+
+   .content-grid {
+      grid-column: 1/4;
+      grid-template-columns: repeat(3, auto);
+      grid-template-rows: auto auto;
+      grid-template-areas: "sky ored bli" "sky oran bli";
+   }
+   .box-sky {
+      grid-area: sky;
+   }
+   .box-red {
+      grid-area: ored;
+   }
+   .box-blue {
+      grid-area: bli;
+   }
+   .box-orange {
+      grid-area: oran;
+   }
+
+   .box {
+      min-width: max-content;
+   }
+
+   .box-blue,
+   .box-sky {
+      margin-block: auto;
+   }
+   .grid {
+      justify-content: center; /* my life saver */
+   }
+}
