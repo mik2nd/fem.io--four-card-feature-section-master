@@ -81,6 +81,9 @@ img {
    header {
       grid-column: 1/4;
    }
+   .title p {
+      max-width: 55ch;
+   }
 
    .content-grid {
       grid-column: 1/4;
